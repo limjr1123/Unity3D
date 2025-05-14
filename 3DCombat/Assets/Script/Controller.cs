@@ -23,7 +23,7 @@ public class Controller : MonoBehaviour
         wheel = -5;
         mouseY = 3;
 
-        anim=player.GetComponent<Animator>(); // 애니메이션 컴포넌트 가져오기
+        anim = player.GetComponent<Animator>(); // 애니메이션 컴포넌트 가져오기
     }
 
     void CamMove()
@@ -32,15 +32,15 @@ public class Controller : MonoBehaviour
         mouseY += Input.GetAxis("Mouse Y") * -1; // 마우스 Y축 이동
 
 
-        if(mouseY > 10)
-           mouseY = 10;
-        if(mouseY < -5)
-           mouseY = -5;
+        if (mouseY > 10)
+            mouseY = 10;
+        if (mouseY < -5)
+            mouseY = -5;
 
         camAxis_Central.rotation = Quaternion.Euler(
-            new Vector3(camAxis_Central.rotation.x+mouseY,
-            camAxis_Central.rotation.y+mouseX,
-            0)*camSpeed); // 카메라 회전       
+            new Vector3(camAxis_Central.rotation.x + mouseY,
+            camAxis_Central.rotation.y + mouseX,
+            0) * camSpeed); // 카메라 회전       
 
 
     }
@@ -59,16 +59,16 @@ public class Controller : MonoBehaviour
 
     void PlayerMove()
     {
-        movement = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")); // 플레이어 이동 방향
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); // 플레이어 이동 방향
 
-        if(movement != Vector3.zero)
+        if (movement != Vector3.zero)
         {
             // 플레이어 회전
-            playerAxis.rotation = Quaternion.Euler(new Vector3(0,camAxis_Central.rotation.y+mouseX,0)*camSpeed); 
+            playerAxis.rotation = Quaternion.Euler(new Vector3(0, camAxis_Central.rotation.y + mouseX, 0) * camSpeed);
             playerAxis.Translate(movement * playerSpeed * Time.deltaTime); // 플레이어 이동
-            
-            player.localRotation = Quaternion.Slerp(player.localRotation,Quaternion.LookRotation(movement),5*Time.deltaTime); // 플레이어 회전
-            
+
+            player.localRotation = Quaternion.Slerp(player.localRotation, Quaternion.LookRotation(movement), 5 * Time.deltaTime); // 플레이어 회전
+
             //애니메이션션
             anim.SetBool("Walk", true); // 걷기 애니메이션
 

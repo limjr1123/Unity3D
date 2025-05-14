@@ -24,6 +24,10 @@ public class Combo : MonoBehaviour
     {
         if (!inputSmash)
         {
+            HitStop.Instance.stopTime = 0.1f; // 히트스탑 시간 설정
+            HitStop.Instance.timeScaleRecoverySpeed = 10f; // 시간 복구 속도 설정
+            HitStop.Instance.shakeFrequency = 0.1f; // 카메라 흔들림 빈도 설정
+            HitStop.Instance.shakeIntensity = 0.1f; // 카메라 흔들림 강도 설정
             if (comboStep == 2)
             {
                 //기본공격
@@ -37,15 +41,21 @@ public class Combo : MonoBehaviour
 
         if (inputSmash)
         {
+            HitStop.Instance.stopTime = 0.1f; // 히트스탑 시간 설정
+            HitStop.Instance.timeScaleRecoverySpeed = 3f; // 시간 복구 속도 설정
+            HitStop.Instance.shakeFrequency = 0.1f; // 카메라 흔들림 빈도 설정
+            HitStop.Instance.shakeIntensity = 0.1f; // 카메라 흔들림 강도 설정
             if (comboStep == 1)
             {
-
+                playerAnim.Play("ARPG_Samurai_Attack_Sprint");
             }
             if (comboStep == 2)
             {
+                playerAnim.Play("ARPG_Samurai_Attack_Heavy2");
             }
             if (comboStep == 3)
             {
+                playerAnim.Play("ARPG_Samurai_Attack_Heavy1_Start");
             }
         }
     }
@@ -99,11 +109,11 @@ public class Combo : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //방어
+            playerAnim.Play("Parrying");//방어
         }
     }
 
-    void ChageTag(string t)
+    void ChangeTag(string t)
     {
         hitBox.tag = t; // 히트박스 태그 변경
     }
