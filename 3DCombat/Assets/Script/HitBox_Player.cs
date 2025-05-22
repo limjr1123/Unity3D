@@ -8,7 +8,7 @@ public class HitBox_Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Col_EnemyAtk"))
+        if (other.CompareTag("Col_EnemyAttack"))
         {
             if(gameObject.CompareTag("HitBox_Player"))
             {

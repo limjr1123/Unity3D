@@ -2,7 +2,7 @@
 
 public class Combo : MonoBehaviour
 {
-    Animator playerAnim;        // 플레이어 애니메이션
+    public Animator playerAnim;        // 플레이어 애니메이션
     bool comboPossible;         // 콤보 가능 여부
     public int comboStep;       // 콤보 단계
     bool inputSmash;            // 스매시 입력 여부

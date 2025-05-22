@@ -10,7 +10,7 @@ TagManager:
   - Defence
   - Counter
   - Col_PlayerAttack
-  - Col_EnemyAtk
+  - Col_EnemyAttack
   layers:
   - Default
   - TransparentFX

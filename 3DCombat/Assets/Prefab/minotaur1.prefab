@@ -520,13 +520,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4652671759900354785}
   - component: {fileID: 882099920403721243}
+  - component: {fileID: 4964184795334314436}
+  - component: {fileID: 4095142204906526184}
   m_Layer: 0
-  m_Name: mino_axe_hand
-  m_TagString: Untagged
+  m_Name: Col_EnemyAttack
+  m_TagString: Col_EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4652671759900354785
 Transform:
   m_ObjectHideFlags: 0
@@ -559,10 +561,45 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.7222111, y: 0.35245967, z: 0.67951393}
   m_Center: {x: -0.15666787, y: -0.15385754, z: 0.16024388}
+--- !u!114 &4964184795334314436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184905641753424273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463db73de01b3ca4d9b635e4a02bfaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &4095142204906526184
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184905641753424273}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.34962496
+  m_Height: 2.1189396
+  m_Direction: 1
+  m_Center: {x: -0.16357633, y: -0.11, z: 0.16320004}
 --- !u!1 &1329860567133114244
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +807,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4911860102595725782}
+  - component: {fileID: 771762415582503784}
+  - component: {fileID: 7633916330346090551}
+  - component: {fileID: 8001264653461839077}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: HitBox_Enemy
@@ -792,6 +832,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6592317201760414299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &771762415582503784
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618039134743037941}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &7633916330346090551
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618039134743037941}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 2.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.11, z: 0}
+--- !u!114 &8001264653461839077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618039134743037941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57faed9ec55c72f41b9f480300009410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 5000
+  hp_Cur: 0
+  hpBar_Front: {fileID: 0}
+  hpBar_Back: {fileID: 0}
+  Mino: {fileID: 4739844019527266501}
 --- !u!1 &1846073433124707936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,7 +2241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minoAnim: {fileID: 4207692519785041180}
   target: {fileID: 0}
-  minoSpeed: 2
+  minoSpeed: 3
 --- !u!1 &4775587980123862129
 GameObject:
   m_ObjectHideFlags: 0

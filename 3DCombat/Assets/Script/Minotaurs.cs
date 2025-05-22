@@ -23,13 +23,13 @@ public class Minotaurs : MonoBehaviour
 
     void MoveMino()
     {
-        if ((target.position - transform.position).magnitude >= 3)
+        if ((target.position - transform.position).magnitude >= 2)
         {
             minoAnim.SetBool("Walk", true);
             transform.Translate(Vector3.forward * minoSpeed * Time.deltaTime, Space.Self);
 
         }
-        if ((target.position - transform.position).magnitude < 3)
+        if ((target.position - transform.position).magnitude < 2)
         {
             minoAnim.SetBool("Walk", false);
         }
@@ -48,7 +48,7 @@ public class Minotaurs : MonoBehaviour
 
     void MinoAtk()
     {
-        if ((target.position - transform.position).magnitude < 3)
+        if ((target.position - transform.position).magnitude < 2)
         {
             switch (atkStep)
             {
@@ -61,7 +61,7 @@ public class Minotaurs : MonoBehaviour
                     minoAnim.Play("attack2");
                     break;
                 case 2:
-                    atkStep++;
+                    atkStep = 0;
                     minoAnim.Play("attack3");
                     break;
             }
